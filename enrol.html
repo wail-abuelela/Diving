@@ -1,0 +1,28 @@
+<div align="center">
+
+<p><?php print_string("paymentrequired") ?></p>
+<p><b><?php echo $instancename; ?></b></p>
+<p><b><?php echo get_string("cost").": {$instance->currency} {$cost}"; ?></b></p>
+<p><img alt="<?php print_string('paybankaccepted', 'enrol_paybank') ?>" height="76px" width="76px" src="https://thumb.ibb.co/dKMsS8/28424027_980626288752579_2280039378356358966_o.jpg" /></p>
+<p><?php print_string("paymentinstant") ?></p>
+
+
+<form action="paybank/try.php?instanceid=$instance->id&courseid=$COURSE->id" method="post">
+
+<input type="hidden" name="on0" value="<?php print_string("user") ?>" />
+<input type="hidden" name="os0" value="<?php p($userfullname) ?>" />
+<input type="hidden" name="instance_id" value="<?php echo "{$instance->id}" ?>" />
+<input type="hidden" name="course_id" value="<?php echo "{$course->id}" ?>" />
+
+<input type="hidden" name="currency_code" value="<?php p($instance->currency) ?>" />
+<input type="hidden" name="amount" value="<?php p($balance->data) ?>" />
+
+
+<input type="hidden" name="first_name" value="<?php p($userfirstname) ?>" />
+<input type="hidden" name="userid" value="<?php $USER->id ?>" />
+
+<input type="submit" value="<?php print_string("sendpaymentbutton", "enrol_paybank") ?>" />
+
+</form>
+
+</div>
